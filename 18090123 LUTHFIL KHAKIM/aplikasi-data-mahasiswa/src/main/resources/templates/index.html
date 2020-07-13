@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome-free/css/all.min.css">
+    <title>Surat Keluar</title>
+</head>
+<body>
+<h1><center>APLIKASI DATA MAHASISWA</center></h1>
+
+<!--<a href="/tambah">Tambah Data</a>-->
+
+<div th:switch="${data}">
+    <div>
+        <h2 th:case="null">Tidak ada data</h2>
+        <div th:case="*">
+
+            <div class="col-md-15 p-5 pt-2">
+                <table class="table table-striped table-bordered">
+                    <a href="/tambah" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-3"></i>TAMBAH DATA</a>
+                    <thead>
+                    <tr>
+                        <th scope="col"><center>NIM</center></th>
+                        <th scope="col"><center>Nama</center></th>
+                        <th scope="col"><center>Jurusan</center></th>
+                        <th scope="col"><center>Alamat</center></th>
+                        <th colspan="2" scope="col"><center>Opsi</center></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="data : ${data}">
+                        <td th:text="${data.nim}"></td>
+                        <td th:text="${data.nama}"></td>
+                        <td th:text="${data.jurusan}"></td>
+                        <td th:text="${data.alamat}"></td>
+                        <td><center><a th:href="@{/ubah/{nim}(nim=${data.nim})}" class="btn btn-primary">Ubah</a> &nbsp; <a th:href="@{/hapus/{nim}(nim=${data.nim})}" class="btn btn-primary">hapus</a><center</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome-free/css/all.min.css">
+
+    <title>Edit Data Mahasiswa</title>
+</head>
+<body>
+<div class="col-md-10 p-4 pt-0">
+    <div class="col-md-10 p-4 pt-0">
+        <center><h2>Edit Data Mahasiswa</h2></center>
+    </div>
+    <div>
+        <form action="#" th:action="@{/simpan}" th:object="${data}" method="post">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><bold>NIM</bold></label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{nim}" id="nim" readonly="true">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-7">
+                    <input type="text" th:field="*{nama}" id="nama" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label">Jurusan</label>
+                <div class="col-sm-7">
+                    <input type="text" th:field="*{jurusan}" id="jurusan" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Alamat</label>
+                <div class="col-sm-7">
+                    <input type="text" th:field="*{alamat}" id="alamat" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" value="Simpan">SIMPAN</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
